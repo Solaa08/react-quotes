@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.navbar {
+    background-color: #22313F;
+    color: #6C6F7D;
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .content {
+    padding-left: 10rem;
+    padding-top: 4rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  h2 {
+    color: #dcdfe8;
   }
-}
+
+  p {
+    color: #8b8e9c;
+  }
+
+  .line {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .save-button {
+	background: none;
+	color: #699969;
+	border: none;
+	padding-right: 3rem;
+    padding-bottom: 1rem;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    font-size: 1.5rem;
+  }
+
+    .saved-title {
+        display: flex;
+        padding-top: 3rem;
+        justify-content: center;
+        padding-left: 0;
+    }
+
+    .delete-button {
+        background: none;
+        color: #996969;
+        border: none;
+        padding-right: 3rem;
+        padding-bottom: 1rem;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        font-size: 1.5rem;
+    }
+
