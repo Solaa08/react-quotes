@@ -23,6 +23,8 @@ export default function App() {
   if (!post) return null;
   
 
+  //faire copie du state en tableau / remplir tableau onClick / maper tableau state
+
   return (
     <div>
       <div className="navbar">
