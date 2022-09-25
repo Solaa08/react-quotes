@@ -25,6 +25,8 @@ export default function App() {
 
   //faire copie du state en tableau / remplir tableau onClick / maper tableau state
 
+  //add images or take other info of the API
+
   return (
     <div>
       <div className="navbar">
