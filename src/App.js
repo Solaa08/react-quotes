@@ -6,26 +6,30 @@ import './app.css';
 
 export default function App() {
 
-  const [post, setPost] = useState([]);
+  const [post, setPost] = useState(undefined);
+  const [savedPosts, setSavedPosts] = useState([]);
   const [loadingData, setLoadingData] = useState(true);
-  const [refreshData, setRefreshData] = useState(false);
-  
+
   const getData = async ()=>{
    const response = await axios.get('https://api.quotable.io/random')
    setPost(response.data)
    setLoadingData(false);
   }
-  
+
   useEffect(()=>{
    getData()
-  },[refreshData])
+  },[])
 
   if (!post) return null;
-  
 
-  //faire copie du state en tableau / remplir tableau onClick / maper tableau state
+  const handleSaveClick = () => {
+    setSavedPosts([...savedPosts, post])
+    getData()
+  }
 
-  //add images or take other info of the API
+  const handleDeleteClick = (post) => {
+    setSavedPosts(savedPosts.filter(p => p._id !== post._id))
+  }
 
   return (
     <div>
@@ -36,18 +40,22 @@ export default function App() {
       <h2>{post.author}</h2>
       <div className="line">
       <p>{post.content}</p>
-      <button onClick={getData} className="save-button">Save this one</button>
+      <button onClick={handleSaveClick} className="save-button">Save this one</button>
       </div>
       </div>
       <div className="saved-title">
       <h2>Saved ones</h2>
       </div>
       <div className="content">
-      <h2>{}</h2>
-      <div className="line">
-      <p></p>
-      <button className="delete-button">Delete it</button>
-      </div>
+      {savedPosts.map(s => {
+        return <>
+        <h2 key={s._id}>{s.author}</h2>
+        <div className="line">
+        <p key={s._id}>{s.content}</p>
+        <button onClick={() => handleDeleteClick(s)} className="delete-button">Delete it</button>
+        </div>
+        </> 
+      })}
       </div>
     </div>
   );
